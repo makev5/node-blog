@@ -3,12 +3,13 @@ const env = process.env.NODE_ENV  // 环境参数
 
 let MYSQL_CONF
 let REDIS_CONF
+let ELASTICSEARCH_CONF
 
 // 本地环境
 if (env === 'dev') {
     // mysql 配置
     MYSQL_CONF = {
-        host: 'localhost',
+        host: '127.0.0.1',
         user: 'root',
         password: 'root',
         database: 'blog',
@@ -17,11 +18,12 @@ if (env === 'dev') {
     // redis 配置
     REDIS_CONF = {
         port: 6379,
-        host: '127.0.0.1'
+        host: 'localhost'
     }
     // elasticsearch 配置
     ELASTICSEARCH_CONF = {
-        host: 'localhost:9200'
+        port: 9200,
+        host: 'localhost'
     }
 }
 
@@ -39,9 +41,10 @@ if (env === 'production') {
         port: 6379,
         host: 'localhost'
     }
-    // elasticsearch 配置
-    ELASTICSEARCH_CONF = {
-        host: 'localhost:9200'
+   // elasticsearch 配置
+   ELASTICSEARCH_CONF = {
+        port: 9200,
+        host: 'localhost'
     }
 }
 
